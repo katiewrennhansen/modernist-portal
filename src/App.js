@@ -9,7 +9,7 @@ import Login from './components/Login';
 
 import './App.css';
 
-const API_URL = 'https://api.ncmodernist.org';
+const API_URL = 'https://api.ncmodernist.org/all';
 
 const App = () => {
   const [architects, setArchitects] = useState([]);
@@ -22,12 +22,12 @@ const App = () => {
   }, [])
 
   return (
-    <div className="App hover-class">
+    <div className="App">
       <header className="header">
         <a className="brand" href="https://www.ncmodernist.org/">
             <img height="73" src="https://www.ncmodernist.org/nc_mod_logo.png" width="300" alt="modernist logo" />
         </a>
-        <nav className="navigation">
+        <nav className="navigation hover-class">
           <Link to='/'>Home</Link>
           <Link to='/map'>Map</Link>
           <Link to='/architects'>Architects</Link>
@@ -35,7 +35,7 @@ const App = () => {
           <Link to='/login'>Login</Link>
         </nav>
       </header>
-        <main className="main">
+        <main className="main hover-class">
         <Switch>
               <Route
                 exact path='/'
@@ -43,7 +43,11 @@ const App = () => {
               />
               <Route 
                   exact path='/map'
-                  component={Map}
+                  component={() => 
+                    <Map
+                      architects={architects} 
+                    />
+                  }
               />
               <Route
                 exact path='/architects'

@@ -7,7 +7,24 @@ const Login = () => {
 
   return (
     <div className="login">
-        <h1>Login Page</h1>
+        <h1>Login to the NC Modernist Volunteer Portal</h1>
+        <form className="login-form">
+            <label htmlFor="username">Username: </label>
+            <input 
+                type="text"
+                id="username" 
+                name="username" 
+                placeholder="Username"
+            />
+            <label htmlFor="password">Password: </label>
+            <input 
+                type="password"
+                id="password" 
+                name="password" 
+                placeholder="Password"
+            />
+            <input type="submit" value="Login"/>
+        </form>
     </div>
   );
 }
