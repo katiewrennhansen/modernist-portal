@@ -18,6 +18,12 @@ const Architect = (props) => {
   
   return (
     <div>
+        <div class="warning-caption extra-small center">
+            <p>Enjoy browsing, but unless otherwise noted, these houses are private property and closed to the public -- so don't go tromping around uninvited!
+                <br />
+                CTRL-F to Search Within Page
+            </p>
+        </div>
         { props.match.params.id === 'Ellen Cassilly' 
             ? (<div className="cassilly-info">
                 <p>
