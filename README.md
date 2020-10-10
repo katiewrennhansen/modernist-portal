@@ -1,6 +1,6 @@
 # NCModernist Volunteer Portal and Demo
 
-This is the font-end compontent of a full-stack application that manages a large database for [https://ncmodernist.org](ncmodernist.org), a non-profit organization dedicated to documenting, preserving and promoting modern residential architecture. 
+This is the font-end compontent of a full-stack application that manages a large database for [ncmodernist.org](https://ncmodernist.org), a non-profit organization dedicated to documenting, preserving and promoting modern residential architecture. 
 
 The purpose of this application is to give NC Modernist a more efficient way to manage the large amount of data that currently lives of their static website. Prior to undertaking this project, all of their records on houses lived directly on their website, and everytime a volunteer wanted to update a house, this was done by manually changing the html containing that record. The aim of this project is to simplifly this process for all volunteers as well as better organize the data as the amount of current data will only continue to grow.
 
