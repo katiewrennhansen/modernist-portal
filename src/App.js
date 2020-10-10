@@ -1,24 +1,72 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import { Link, Switch, Route } from 'react-router-dom'
+import Landing from './components/Landing'
+import Home from './components/Home'
+import Architect from './components/Architect';
+import Portal from './components/Portal';
+import Map from './components/Map';
+import Login from './components/Login';
+
 import './App.css';
 
-function App() {
+const API_URL = 'https://api.ncmodernist.org';
+
+const App = () => {
+  const [architects, setArchitects] = useState([]);
+
+  useEffect(() => {
+    fetch(API_URL)
+    .then(res => res.json())
+    .then(resJson => setArchitects(resJson)) 
+    .catch(err => console.log(err))
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
+    <div className="App hover-class">
+      <header className="header">
+        <a className="brand" href="https://www.ncmodernist.org/">
+            <img height="73" src="https://www.ncmodernist.org/nc_mod_logo.png" width="300" alt="modernist logo" />
         </a>
+        <nav className="navigation">
+          <Link to='/'>Home</Link>
+          <Link to='/map'>Map</Link>
+          <Link to='/architects'>Architects</Link>
+          <Link to='/portal'>Portal</Link>
+          <Link to='/login'>Login</Link>
+        </nav>
       </header>
+        <main className="main">
+        <Switch>
+              <Route
+                exact path='/'
+                component={Home}
+              />
+              <Route 
+                  exact path='/map'
+                  component={Map}
+              />
+              <Route
+                exact path='/architects'
+                component={() => 
+                  <Landing
+                    architects={architects} 
+                  />
+                }
+              />
+              <Route 
+                  exact path='/architect/:id'
+                  component={Architect}
+              />
+              <Route 
+                  exact path='/portal'
+                  component={Portal}
+              />
+              <Route 
+                  exact path='/login'
+                  component={Login}
+              />
+          </Switch>
+        </main>
     </div>
   );
 }
